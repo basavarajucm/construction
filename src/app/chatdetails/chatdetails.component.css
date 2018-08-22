@@ -1,0 +1,47 @@
+.container
+{
+    display:flex;
+    flex-direction: column;
+    padding: 18px 4px;
+    margin-top:25px;
+}
+.example-card
+{
+  margin-top: 4px;
+  margin-bottom: 1px;
+  background-color: #9e9e9e63;
+}
+.icon
+{
+    color:green;
+   font-size:33px;
+    display: flex;
+    justify-content: flex-end;
+}
+agm-map {
+    height: 300px;
+  }
+.posts
+{
+    display:flex;
+    flex-direction: column-reverse;
+}
+.img
+{
+    width:100% !important;
+    height: 200px !important;
+}
+.spinner-container
+{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+
+
+}
+.spinner
+{
+    text-align:center;
+}

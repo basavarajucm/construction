@@ -1,0 +1,57 @@
+
+<appheader>
+
+
+
+<mat-card>
+  <div class="container">
+   <h3>Send Posts</h3>
+    <mat-form-field>
+      <input matInput placeholder="Your comments" [(ngModel)]="msg" [formControl]="msgFormControl" required>
+      <mat-error *ngIf="msgFormControl.hasError('required')">
+            Please Enter a <strong>Comment</strong>
+          </mat-error>
+   </mat-form-field>
+  </div>
+
+  <div style="padding:0px 4px">
+      <img *ngIf="image" [src]="image" name="img" class="img">
+      <input type='file' (change)="onSelectFile($event)" style="display:none" #file> 
+      
+    <button mat-raised-button color="primary" id="upfile1" style="cursor:pointer" (click)="file.click()">Upload Image</button>
+    <button mat-raised-button color="primary" (click)="saveChat()">SEND</button>
+    </div>
+  <mat-error *ngIf="Response">{{Response}}</mat-error>
+</mat-card>   
+  <div class="container" *ngIf="flag==false" class="spinner-container">
+      <mat-spinner [diameter]="80" class="spinner"></mat-spinner>
+  </div>	
+
+<div class="posts">
+ 
+    <mat-card *ngFor ="let chats of chatlist" class="example-card mat-elevation-z8">
+        <mat-card-content>
+           
+            <img class="img"  id="image" src="{{chats.image}}" height="150px">
+        
+            
+     <label style="font-weight: bold;font-size: 16px;">Sent Location</label>
+      <div class="map">
+          <agm-map [latitude]="lat" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+       </div>
+       <p mat-line style="font-weight: bold;font-size: 16px;">{{chats.description}}</p>
+       <p style="float:right;font-weight:bold;">Updated On:{{chats.updatedTime}}</p>
+      </mat-card-content>
+    </mat-card>        
+</div>
+</appheader>
+
+
+
+
+
+
+
+

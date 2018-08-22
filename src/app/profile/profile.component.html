@@ -1,0 +1,121 @@
+<appheader>
+<!--<div class="container">
+  <div class="img-container">
+    <img class="img"  id="image" src="{{imagePath ? imagePath : './assets/icons/profilelogo.png'}}" (click)="changeProfilePicture()">
+  </div>
+  <!--<div *ngIf="isResponse==false" class="img-container">
+      <mat-spinner></mat-spinner>
+  </div>-
+  <div style=" display:flex;justify-content:space-around;flex-direction:column;padding-top: 10px;font-size: 22px;width:auto;" (click)="viewpersonalDetails()">
+     <b> {{name}}</b>
+    <!-- <span style="color: antiquewhite;margin-top: -10px;">Edit Profile</span>
+  </div> 
+</div>
+<mat-divider></mat-divider>-->
+
+
+<div style="padding-top:20px;margin-top:40px">
+  <mat-divider></mat-divider>
+    <div class="">
+      <mat-toolbar style="background-color:#9e9e9e; height:30px">
+      <span style="color:white;font-size: 15px;">Personal Details</span>
+    </mat-toolbar>
+    </div>  
+
+ 
+   
+
+ <div class="container"> 
+  <form id="formstyle" (submit)="saveChanges($event)">
+
+ <div *ngIf="disablename" id="formstyle1" >
+  <mat-form-field (click)="changeName()">
+    <mat-card-title>Name</mat-card-title><mat-icon style="float:right" >edit</mat-icon>
+    <!--<div *ngIf="enableTextBox; then workedAtenable else workedAtdisable"></div>-->
+    <input matInput  name="uname" value="{{name}}" disabled="true">
+   </mat-form-field>
+   </div>
+
+   <div *ngIf="enablename" id="formstyle"> 
+      <mat-form-field>
+        <mat-card-title>Name</mat-card-title>
+        <input matInput  name="uname" value="{{name}}">
+    </mat-form-field>
+    </div>
+
+  
+    
+ 
+
+<div *ngIf="disableemail" id="formstyle1">
+  <mat-form-field (click)="changeEmail()">
+      <mat-card-title>Email</mat-card-title><mat-icon style="float:right" >edit</mat-icon>
+      <input matInput name="email" value="{{email}}" disabled="true">
+  </mat-form-field>
+</div>
+
+
+
+
+      <div *ngIf="enableemail" id="formstyle">
+          <mat-form-field>
+              <mat-card-title>Email</mat-card-title>
+              <input matInput name="email" [formControl]="emailFormControl" [(ngModel)]="email" value="{{email}}">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+          </mat-form-field>
+         
+        </div>
+
+
+<div *ngIf="disablephone" id="formstyle1">
+  <mat-form-field (click)="changePhone()">
+      <mat-card-title>Phone</mat-card-title><mat-icon style="float:right;height:10px;width:20px;" >edit</mat-icon>
+      <input matInput name="phone" value="{{phone}}" disabled="true">
+  </mat-form-field>
+</div>
+
+<div *ngIf="enablephone" id="formstyle">
+    <mat-form-field>
+        <mat-card-title>Phone</mat-card-title>
+        <input matInput name="phone" value="{{phone}}">
+    </mat-form-field>
+   
+  </div>
+
+  <div *ngIf="disablepassword" id="formstyle1">
+    <mat-form-field (click)="changePassword()">
+        <mat-card-title>password</mat-card-title><mat-icon style="float:right;height:10px;width:20px;" >edit</mat-icon>
+        <input matInput name="password" type="password" value="{{password}}" disabled="true">
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="enablepassword" id="formstyle">
+    <mat-form-field>
+        <mat-card-title>password</mat-card-title>
+        <input matInput name="password" value="{{password}}">
+    </mat-form-field>
+   
+  </div>
+  
+<button mat-raised-button color="primary">Save Changes</button>
+
+</form>  
+</div>  
+
+
+
+
+</div>
+<mat-divider style="padding-top:10px"></mat-divider>
+  <div *ngIf="isResponse">
+      <label style="color:green">{{status}}</label>
+  </div>
+   
+</appheader>
+
+

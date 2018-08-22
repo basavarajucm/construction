@@ -1,0 +1,17 @@
+<appheader></appheader>
+<mat-card>
+  <mat-list>
+      <h3 mat-subheader>Assigned Projects</h3>
+    <mat-list-item *ngFor="let project of assignedprojects">
+      <mat-icon mat-list-icon>note</mat-icon>
+      <h4 mat-line>user id:{{project.userid}}</h4>
+      <h4 mat-line>project id:{{project.projectid}}</h4>
+      <p mat-line> project name:{{project.projectname}} </p>
+      <p mat-line> user name:{{project.username}} </p>
+      <p mat-line> user email:{{project.email}} </p>
+      <p mat-line> user phonenumber:{{project.phone}} </p>
+     
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
